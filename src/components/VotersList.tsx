@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const VotersList: React.FC = () => {
   const [voters, setVoters] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost/wybory_react/api.php/voters')
-      .then(response => response.json())
-      .then(data => {
-        console.log('Voters data:', data);
-        setVoters(data);
+    axios.get('http://localhost/wybory_react/api.php/voters')
+      .then(response => {
+        console.log('Voters data:', response.data);
+        setVoters(response.data);
       })
       .catch(error => console.error('Error fetching voters:', error));
   }, []);
@@ -27,7 +27,7 @@ const VotersList: React.FC = () => {
           {voters.map(voter => (
             <tr key={voter.username}>
               <td>{voter.username}</td>
-              <td>{voter.glosowal ? 'V' : 'X'}</td>
+              <td>{voter.glosowal == 1 ? 'V' : 'X'}</td>
             </tr>
           ))}
         </tbody>
