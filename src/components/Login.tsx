@@ -15,9 +15,10 @@ const Login: React.FC = () => {
 
     return (
         <div className='wrapper'>
-            <h1>Aplikacja Wyborcza</h1>
-            <button onClick={handleLogin}>Zaloguj się</button>
-            <button onClick={handleRegister}>Rejestracja</button>
+            <h1>Voting App</h1>
+            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleRegister}>Sign Up</button>
+            <button onClick={handleRegister}>Admin</button>
         </div>
     );
 };

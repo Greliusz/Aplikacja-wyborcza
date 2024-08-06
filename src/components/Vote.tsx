@@ -13,13 +13,11 @@ const Vote: React.FC = () => {
   };
 
   return (
-    <div className='vote_styl'>
-    <div>
+    <div className='vote_styl'>    
       <VotersList />
       <CandidatesList />
       <UserVoting />
-      <button className='blogout' onClick={handleLogout}>Wyloguj się</button>
-    </div>
+      <button className='blogout' onClick={handleLogout}>Logout</button>
     </div>
   );
 };

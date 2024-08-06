@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { login } from '../apiService';
 
 const LoginForm: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -9,31 +10,27 @@ const LoginForm: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const response = await fetch('http://localhost/wybory_react/api.php/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      localStorage.setItem('user', JSON.stringify(data.user));
-      navigate('/vote'); // Przekierowanie po zalogowaniu
-    } else {
-      alert('Invalid username or password');
+    try {
+      const response = await login({ username, password });
+      if (response.success) {
+        localStorage.setItem('user', JSON.stringify(response.user));
+        navigate('/vote'); // Przekierowanie po zalogowaniu
+      } else {
+        alert('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      alert('An error occurred during login. Please try again.');
     }
   };
-
+  
   return (
     <div className='wrapper'>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div className='input-box'>
           <input
-            placeholder='Użytkownik'
+            placeholder='Username'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -41,7 +38,7 @@ const LoginForm: React.FC = () => {
         </div>
         <div className='input-box'>
           <input
-            placeholder='Hasło'
+            placeholder='Password'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
