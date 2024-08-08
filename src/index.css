@@ -1,124 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #root {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @apply w-9/10 flex justify-center items-center;
 }
 
-/* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-} */
-
-body{
-    width: 100%;
-    font-family: "Poppins", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -mos-osx-font-smoothing: grayscale;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('./components/Assets/background.jpg')no-repeat;
-    background-size: cover;
-    background-position: center;
+body {
+  @apply w-full font-poppins antialiased flex justify-center items-center min-h-screen bg-background-img bg-no-repeat bg-cover bg-center;
 }
 
-.vote_styl {
-    /* width: 600px; */
-    display: flex;
-    align-content: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;    
-    /* min-width: 90%; */
-    /* align-items: flex-start;
-    justify-content: center; */
-    /* gap: 1em; */
-    
-    /* margin-left:auto; 
-    margin-right: auto; */
+input::placeholder {
+    color: #ffffff; 
 }
 
-.window_list {
-    width: 49%;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(200px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, .2);
-    color: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
-    /* float: left; */
-    flex-basis: 40%;
-     
-}
-
-.window_vote {
-    flex-basis: 50%;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(200px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, .2);
-    color: #fff;
-    border-radius: 10px;
-    padding: 30px 40px;
-    /* float: left; */
-}
-
-.blogout {
-    width: 40%;
-    height: 45px;
-    background: #fff;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
-    font-size: 16px;
-    color: #333;
-    font-weight: 700;
-    margin: 20px 0px;
-}
-
-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    min-width: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid #006f98;
-
-
-}
-
-table thead tr {
-    background-color: #006f98;
-    color: #ffffff;
-    text-align: left;
-}
-
-table th,
-table td {
-    padding: 5px 10px;
-    border: 1px solid #ffffff;
-    text-align: center;   
-}
-
-table tbody tr {
-    border-bottom: 1px solid #006f98;
-}
-
-.styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
+--tw-ring-color: rgb(59 130 246 / 0.5);
