@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-# My Project
+# Getting Started with VoteApp
 
 Here are some screenshots of my project:
 
